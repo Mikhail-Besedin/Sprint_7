@@ -28,14 +28,14 @@ class TestCreateCourier:
 
     @allure.title("Попытка создать курьера без указания login")
     @allure.description("Проверка статус кода и текста ошибки  при попытки создания курьера без обязательного поля login")
-    def test_not_login_required_field(self, create_data_for_courier):
+    def test_create_couriers_not_login(self, create_data_for_courier):
         payload = {"password": create_data_for_courier[1], "firstName": create_data_for_courier[2]}
         response = requests.post(Urls.CREATE_COURIER, data=payload)
         assert response.status_code == 400 and response.text == ApiResponse.RESPONSE_CREATE_COURIERS_WITHOUT_LOGIN
 
     @allure.title("Попытка создать курьера без указания password")
     @allure.description("Проверка статус кода и текста ошибки  при попытки создания курьера без обязательного поля password")
-    def test_not_login_required_field(self, create_data_for_courier):
+    def test_create_couriers_not_password(self, create_data_for_courier):
         payload = {"login": create_data_for_courier[0], "firstName": create_data_for_courier[2]}
         response = requests.post(Urls.CREATE_COURIER, data=payload)
         assert response.status_code == 400 and response.text == ApiResponse.RESPONSE_CREATE_COURIERS_WITHOUT_LOGIN

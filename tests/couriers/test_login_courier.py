@@ -7,7 +7,7 @@ class TestLoginCourier:
 
     @allure.title('Успешная авторизация ')
     @allure.description("Проверка успешной авторизации,статус кода и возврат id ")
-    def test_authorization_courier_succes(self,register_new_courier_and_return_login_password):
+    def test_authorization_courier_successfully(self,register_new_courier_and_return_login_password):
         payload = {
             "login": register_new_courier_and_return_login_password[0],
             "password": register_new_courier_and_return_login_password[1],
